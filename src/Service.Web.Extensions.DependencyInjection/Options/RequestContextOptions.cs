@@ -11,7 +11,7 @@ public record RequestContextOptions {
     public UserAgentForceOptionInDevelopment UserAgentForceOptionInDevelopment { get; init; } = null!;
 
     public bool CanForceOverrideUserAgent() =>
-        DefaultEnvironment.GetEnvironmentName() is DefaultEnvironmentNames.Development && UserAgentForceOptionInDevelopment?.ForceOverride is true;
+        DefaultWebEnvironment.WebApps.IsDevelopment() && UserAgentForceOptionInDevelopment?.ForceOverride is true;
 
     public string GetUserAgent(HttpContext httpContext) =>
         CanForceOverrideUserAgent() ? UserAgentForceOptionInDevelopment.OverrideValue : httpContext.Request.Headers.UserAgent;
