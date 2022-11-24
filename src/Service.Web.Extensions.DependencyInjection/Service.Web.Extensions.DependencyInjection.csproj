@@ -31,6 +31,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Service.Extensions.DependencyInjection" Version="1.4.1.3" />
-		<PackageReference Include="WebPack.CoreLib" Version="0.9.22" />
+		<PackageReference Include="WebPack.CoreLib" Version="0.9.23" />
 	</ItemGroup>
 </Project>
