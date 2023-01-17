@@ -13,8 +13,10 @@ public record RequestContextOptions {
     public bool CanForceOverrideUserAgent() =>
         DefaultWebEnvironment.WebApps.IsDevelopment() && UserAgentForceOptionInDevelopment?.ForceOverride is true;
 
-    public string GetUserAgent(HttpContext httpContext) =>
-        CanForceOverrideUserAgent() ? UserAgentForceOptionInDevelopment.OverrideValue : httpContext.Request.Headers.UserAgent;
+    public string? GetUserAgent(HttpContext httpContext) =>
+        CanForceOverrideUserAgent()
+            ? UserAgentForceOptionInDevelopment.OverrideValue
+            : httpContext.Request.Headers.UserAgent;
 }
 
 public record UserAgentForceOptionInDevelopment {
