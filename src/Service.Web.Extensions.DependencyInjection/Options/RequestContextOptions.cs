@@ -8,10 +8,10 @@ namespace Service.Extensions.DependencyInjection.Options;
 //Todo:C#11でnull!除去予定
 public record RequestContextOptions {
     [Required]
-    public UserAgentForceOptionInDevelopment UserAgentForceOptionInDevelopment { get; init; } = null!;
+    public required UserAgentForceOptionInDevelopment UserAgentForceOptionInDevelopment { get; init; }
 
     public bool CanForceOverrideUserAgent() =>
-        DefaultWebEnvironment.WebApps.IsDevelopment() && UserAgentForceOptionInDevelopment?.ForceOverride is true;
+        DefaultWebEnvironment.WebApps.IsDevelopment() && UserAgentForceOptionInDevelopment.ForceOverride;
 
     public string? GetUserAgent(HttpContext httpContext) =>
         CanForceOverrideUserAgent()
