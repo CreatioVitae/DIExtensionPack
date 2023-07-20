@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Service.Extensions.DependencyInjection.Markers;
+using Service.Web.Extensions.DependencyInjection.Extensions;
 using System;
 using WebPack.CoreLib.HttpHeaders.RequestedDatetimeOverrides;
 
@@ -14,13 +15,10 @@ public sealed class RequestedDatetimeOverrideInDevelopmentFilter<TRequestContext
         RequestContext = requestContext;
 
     public override void OnActionExecuting(ActionExecutingContext context) {
-        if (DefaultWebEnvironment.WebApps.IsDevelopment() && context.HttpContext.GetForceOverrideRequestedDatetimeFromHeader() && context.HttpContext.GetOverrideRequestedDatetimeFromHeader() is { } nonnullRequestedDatetime) {
-            var type = RequestContext.GetType();
-            var prop = type.GetProperty(nameof(RequestContext.RequestedDatetime));
-            ArgumentNullException.ThrowIfNull(prop);
-            prop.SetValue(RequestContext, nonnullRequestedDatetime);
-        }
+        RequestContext.OverrideRequestedDatetime(context.HttpContext);
 
         base.OnActionExecuting(context);
     }
+
+   
 }
