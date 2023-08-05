@@ -4,8 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 // ReSharper disable once CheckNamespace
 namespace Service.Extensions.DependencyInjection.Options;
-
-//Todo:C#11でnull!除去予定
 public record RequestContextOptions {
     [Required]
     public required UserAgentForceOptionInDevelopment UserAgentForceOptionInDevelopment { get; init; }
