@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ApplicationIcon />
 		<OutputType>Library</OutputType>
 		<StartupObject />
-		<Version>1.10.1</Version>
+		<Version>1.11.1</Version>
 		<Authors>Vitae</Authors>
 		<Description>
 			ASP.NET Core DI Extension ＆ Marker Interface;
@@ -15,7 +15,7 @@
 		</Description>
 		<PackageProjectUrl>https://github.com/CreatioVitae/DIExtensionPack</PackageProjectUrl>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageReleaseNotes>upgrade package.</PackageReleaseNotes>
+		<PackageReleaseNotes>upgrade dotnet.</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/CreatioVitae/DIExtensionPack</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Service.Extensions.DependencyInjection" Version="1.10.1" />
-		<PackageReference Include="WebPack.CoreLib" Version="0.15.1" />
+		<PackageReference Include="Service.Extensions.DependencyInjection" Version="1.11.1" />
+		<PackageReference Include="WebPack.CoreLib" Version="0.16.1" />
 	</ItemGroup>
 </Project>
